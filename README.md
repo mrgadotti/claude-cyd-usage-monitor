@@ -1,5 +1,7 @@
 # claude-usage
 
+![Claude Code usage on the CYD](docs/cyd.png)
+
 Standalone Claude Code usage monitor for the ESP32 Cheap Yellow Display
 (ESP32-2432S028R, ILI9341 240x320). It joins Wi-Fi and shows two bars, the
 5-hour **session** and the **weekly** usage of your Claude plan, each with the
