@@ -1,0 +1,6 @@
+.pio/
+.vscode/
+*.bin
+*.elf
+src/secrets.h
+__pycache__/
