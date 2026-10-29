@@ -53,6 +53,22 @@ Then flash with `pio run -t erase && pio run -t upload`.
 
 To revoke the board's access, remove its session in your Claude account settings.
 
+## About the OAuth client ID
+
+`tools/device_login.py` and the firmware use the public OAuth client ID of the Claude Code CLI
+(`9d1c250a-e61b-44d9-88ed-5944d1962f5e`). It is not a secret and not tied to any account: it is the same
+for every Claude Code installation and only tells Anthropic which application is asking for a login.
+Your account is identified by the tokens in `src/secrets.h`, which never leave your machine or board.
+
+A client ID cannot be generated locally; it must be registered with Anthropic, and there is no public way
+to register one for this API. As a result this project:
+
+- presents itself to Anthropic as Claude Code, so its usage may show up as Claude Code on your account;
+- relies on undocumented endpoints (`/api/oauth/usage`, `/v1/oauth/token`) that can change or be blocked at any time;
+- is not affiliated with or endorsed by Anthropic.
+
+Use it with your own account and at your own risk.
+
 ## Secrets and git
 
 `src/secrets.h` holds the Wi-Fi password and OAuth tokens and is listed in `.gitignore`.
